@@ -1,0 +1,12 @@
+go get -v github.com/HewlettPackard/oneview-golang/ov
+
+//OUTPUT:
+github.com/HewlettPackard/oneview-golang (download)
+github.com/HewlettPackard/oneview-golang/liboneview
+github.com/HewlettPackard/oneview-golang/vendor/github.com/docker/machine/libmachine/log
+github.com/HewlettPackard/oneview-golang/utils
+github.com/HewlettPackard/oneview-golang/rest
+github.com/HewlettPackard/oneview-golang/ov
+
+//how to reinstall? - remove from the following paths:
+go get -u -v github.com/mpolski/oneview-golang/ov

@@ -1,0 +1,30 @@
+version: "3"
+services:
+  hpe-oneview-exporter:
+    image: hpe-oneview-prometheus:latest
+    container_name: hpe-oneview-prometheus
+    ports:
+      - "8080:8080"
+    environment:
+      - OV_ENDPOINT
+      - OV_USERNAME
+      - OV_PASSWORD
+      - OV_AUTHLOGINDOMAIN
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+    - ./prometheus/:/etc/prometheus
+    ports:
+     - "9090:9090"
+    depends_on:
+    - hpe-oneview-exporter
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    volumes:
+    - ./grafana/provisioning/:/etc/grafana/provisioning/
+    ports:
+      - "3000:3000"
+    depends_on:
+    - prometheus
