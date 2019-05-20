@@ -3,7 +3,7 @@ ENV GOPATH /go/
 WORKDIR /build/ 
 
 RUN go get -v -d -tags "static-netgo" github.com/prometheus/client_golang/prometheus && \
-    go get -v -d -tags "static-netgo" github.com/mpolski/oneview-golang/ov && \
+    go get -v -d -tags "static-netgo" github.com/mpolski/oneview-golang/ov
 
 COPY hpe-oneview-prometheus.go /build/
 
