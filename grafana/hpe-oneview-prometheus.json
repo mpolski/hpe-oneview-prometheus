@@ -81,7 +81,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(oneview_count{resourceType=\"server-hardware\"})",
+            "expr": "sum(oneview_count{category=\"server-hardware\"})",
             "format": "time_series",
             "intervalFactor": 1,
             "legendFormat": "",
@@ -165,7 +165,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"server-hardware\",status=\"'status'='OK'\"}",
+            "expr": "oneview_status{category=\"server-hardware\",status=\"'status'='OK'\"}",
             "format": "time_series",
             "intervalFactor": 1,
             "legendFormat": "",
@@ -250,7 +250,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"server-hardware\",status=\"'status'='Warning'\"}",
+            "expr": "oneview_status{category=\"server-hardware\",status=\"'status'='Warning'\"}",
             "format": "time_series",
             "intervalFactor": 1,
             "legendFormat": "",
@@ -336,7 +336,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"server-hardware\",status=\"'status'='Critical'\"}",
+            "expr": "oneview_status{category=\"server-hardware\",status=\"'status'='Critical'\"}",
             "format": "time_series",
             "intervalFactor": 1,
             "legendFormat": "",
@@ -421,7 +421,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"server-hardware\",status=\"'status'='Disabled'\"}",
+            "expr": "oneview_status{category=\"server-hardware\",status=\"'status'='Disabled'\"}",
             "format": "time_series",
             "intervalFactor": 1,
             "legendFormat": "",
@@ -506,7 +506,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"server-hardware\",status=\"'status'='Unknown'\"}",
+            "expr": "oneview_status{category=\"server-hardware\",status=\"'status'='Unknown'\"}",
             "format": "time_series",
             "intervalFactor": 1,
             "legendFormat": "",
@@ -591,7 +591,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_count{resourceType=\"interconnects\"}",
+            "expr": "oneview_count{category=\"interconnects\"}",
             "format": "time_series",
             "intervalFactor": 1,
             "legendFormat": "",
@@ -675,7 +675,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_count{resourceType=\"enclosures\"}",
+            "expr": "oneview_count{category=\"enclosures\"}",
             "format": "time_series",
             "intervalFactor": 1,
             "legendFormat": "",
@@ -759,7 +759,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"enclosures\",status=\"'status'='OK'\"}",
+            "expr": "oneview_status{category=\"enclosures\",status=\"'status'='OK'\"}",
             "format": "time_series",
             "interval": "",
             "intervalFactor": 1,
@@ -845,7 +845,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"enclosures\",status=\"'status'='Warning'\"}",
+            "expr": "oneview_status{category=\"enclosures\",status=\"'status'='Warning'\"}",
             "format": "time_series",
             "interval": "",
             "intervalFactor": 1,
@@ -931,7 +931,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"enclosures\",status=\"'status'='Critical'\"}",
+            "expr": "oneview_status{category=\"enclosures\",status=\"'status'='Critical'\"}",
             "format": "time_series",
             "interval": "",
             "intervalFactor": 1,
@@ -1017,7 +1017,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"enclosures\",status=\"'status'='Disabled'\"}",
+            "expr": "oneview_status{category=\"enclosures\",status=\"'status'='Disabled'\"}",
             "format": "time_series",
             "interval": "",
             "intervalFactor": 1,
@@ -1103,7 +1103,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"enclosures\",status=\"'status'='Unknown'\"}",
+            "expr": "oneview_status{category=\"enclosures\",status=\"'status'='Unknown'\"}",
             "format": "time_series",
             "interval": "",
             "intervalFactor": 1,
@@ -1189,7 +1189,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_count{resourceType=\"sas-interconnects\"}",
+            "expr": "oneview_count{category=\"sas-interconnects\"}",
             "format": "time_series",
             "intervalFactor": 1,
             "legendFormat": "",
@@ -1273,7 +1273,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"sas-interconnects\",status=\"'status'='OK'\"}",
+            "expr": "oneview_status{category=\"sas-interconnects\",status=\"'status'='OK'\"}",
             "format": "time_series",
             "interval": "",
             "intervalFactor": 1,
@@ -1359,7 +1359,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"sas-interconnects\",status=\"'status'='Warning'\"}",
+            "expr": "oneview_status{category=\"sas-interconnects\",status=\"'status'='Warning'\"}",
             "format": "time_series",
             "interval": "",
             "intervalFactor": 1,
@@ -1445,7 +1445,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"sas-interconnects\",status=\"'status'='Critical'\"}",
+            "expr": "oneview_status{category=\"sas-interconnects\",status=\"'status'='Critical'\"}",
             "format": "time_series",
             "interval": "",
             "intervalFactor": 1,
@@ -1531,7 +1531,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"sas-interconnects\",status=\"'status'='Disabled'\"}",
+            "expr": "oneview_status{category=\"sas-interconnects\",status=\"'status'='Disabled'\"}",
             "format": "time_series",
             "interval": "",
             "intervalFactor": 1,
@@ -1617,7 +1617,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "oneview_status{resourceType=\"sas-interconnects\",status=\"'status'='Unknown'\"}",
+            "expr": "oneview_status{category=\"sas-interconnects\",status=\"'status'='Unknown'\"}",
             "format": "time_series",
             "interval": "",
             "intervalFactor": 1,
