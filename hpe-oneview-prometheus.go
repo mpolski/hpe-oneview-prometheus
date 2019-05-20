@@ -23,21 +23,14 @@ func main() {
 				Name: "oneview_status",
 				Help: "Number of components reported given status.",
 			},
-			[]string{"resourceType", "status"})
+			[]string{"category", "status"})
 
 		mCount = prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
 				Name: "oneview_count",
 				Help: "Total number of resources of a given kind.",
 			},
-			[]string{"resourceType"})
-
-		// mEncCount = prometheus.NewGaugeVec(
-		// 	prometheus.GaugeOpts{
-		// 		Name: "oneview_enclosures_count",
-		// 		Help: "Total number of enclosures.",
-		// 	},
-		// 	[]string{"resourceType"})
+			[]string{"category"})
 
 		mAmbTemp = prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
@@ -45,12 +38,14 @@ func main() {
 				Help: "Ambient temperature as reported by the resource.",
 			},
 			[]string{"category", "uuid", "name"})
+
 		mAvePwr = prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
 				Name: "oneview_averagePower_watts",
 				Help: "Average Power consumption as reported by the resource.",
 			},
 			[]string{"category", "uuid", "name"})
+
 		mPeakPwr = prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
 				Name: "oneview_peakPower_watts",
@@ -58,63 +53,23 @@ func main() {
 			},
 			[]string{"category", "uuid", "name"})
 
-		// mSrvCount = prometheus.NewGaugeVec(
-		// 	prometheus.GaugeOpts{
-		// 		Name: "oneview_serverHardware_count",
-		// 		Help: "Total number of server hardware.",
-		// 	},
-		// 	[]string{"resourceType"})
-
-		// mSrvAmbTemp = prometheus.NewGaugeVec(
-		// 	prometheus.GaugeOpts{
-		// 		Name: "oneview_server_ambientTemperature_celcius",
-		// 		Help: "Ambient temperature as reported by server.",
-		// 	},
-		// 	[]string{"category", "uuid", "name"})
-		// mSrvAvePwr = prometheus.NewGaugeVec(
-		// 	prometheus.GaugeOpts{
-		// 		Name: "oneview_server_averagePower_watts",
-		// 		Help: "Average Power consumption as reported by server.",
-		// 	},
-		// 	[]string{"category", "uuid", "name"})
 		mCPUFreq = prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
 				Name: "oneview__CPUFrequency_Mhz",
 				Help: "CPU frequency of the resource.",
 			},
 			[]string{"category", "uuid", "name"})
+
 		mCPUUtil = prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
 				Name: "oneview_CPUUtilization_percent",
 				Help: "CPU utilization of the resource.",
 			},
 			[]string{"category", "uuid", "name"})
-		// mSrvPeakPwr = prometheus.NewGaugeVec(
-		// 	prometheus.GaugeOpts{
-		// 		Name: "oneview_server_peakPower_watts",
-		// 		Help: "Peak Power consumption as reported by server.",
-		// 	},
-		// 	[]string{"category", "uuid", "name"})
-		// mIntCount = prometheus.NewGaugeVec(
-		// 	prometheus.GaugeOpts{
-		// 		Name: "oneview_interconnect_count",
-		// 		Help: "Total number of Interconnects.",
-		// 	},
-		// 	[]string{"resourceType"})
-		// mSasIntCount = prometheus.NewGaugeVec(
-		// 	prometheus.GaugeOpts{
-		// 		Name: "oneview_sasInterconnect_count",
-		// 		Help: "Total number of SAS Interconnects.",
-		// 	},
-		// 	[]string{"resourceType"})
 	)
 
 	prometheus.MustRegister(
 		mStatus, mCount, mAmbTemp, mAvePwr, mPeakPwr, mCPUFreq, mCPUUtil,
-		//mEncAmbTemp, mEncAvePwr, mEncPeakPwr, //mEncStatus, ,mEncCount
-		//mSrvAmbTemp, mSrvAvePwr, mSrvAveCPU, mSrvCPUUti, mSrvPeakPwr, //mSrvStatus, mSrvCount
-		//mIntCount,    //mIntStatus,
-		//mSasIntCount, // mSasIntStatus,
 	)
 
 	//Enclosure Count, ServerHardware Count, Interconnect Count, SAS Interconnect Count
@@ -125,7 +80,7 @@ func main() {
 			os.Getenv("OV_AUTHLOGINDOMAIN"),
 			os.Getenv("OV_ENDPOINT"), //use http(s):// prefix
 			false,
-			800, //why is this a fixed value? either detect or use env var
+			800,
 			"*")
 		for {
 			//Enclosures count
@@ -134,7 +89,7 @@ func main() {
 				fmt.Println("Enclosures Retrieval Failed: ", err)
 			} else {
 				fmt.Println("#----------------Enclosures Count Total---------------#", encC.Total)
-				mCount.With(prometheus.Labels{"resourceType": encC.Category}).Set(float64(encC.Total))
+				mCount.With(prometheus.Labels{"category": encC.Category}).Set(float64(encC.Total))
 			}
 
 			//ServerHardware count
@@ -143,7 +98,7 @@ func main() {
 				fmt.Println("Server Hardware Retrieval Failed: ", err)
 			} else {
 				fmt.Println("#----------------Server Hardware Count Total---------------#", srvC.Total)
-				mCount.With(prometheus.Labels{"resourceType": srvC.Category}).Set(float64(srvC.Total))
+				mCount.With(prometheus.Labels{"category": srvC.Category}).Set(float64(srvC.Total))
 			}
 
 			//Interconnect count
@@ -152,7 +107,7 @@ func main() {
 				fmt.Println("Interconnect Retrieval Failed: ", err)
 			} else {
 				fmt.Println("#----------------Interconnect Count Total---------------#", intC.Total)
-				mCount.With(prometheus.Labels{"resourceType": intC.Category}).Set(float64(intC.Total))
+				mCount.With(prometheus.Labels{"category": intC.Category}).Set(float64(intC.Total))
 			}
 
 			//SAS Interconnect count
@@ -161,7 +116,7 @@ func main() {
 				fmt.Println("SAS Interconnect Retrieval Failed: ", err)
 			} else {
 				fmt.Println("#----------------SAS Interconnect Count Total---------------#", sintC.Total)
-				mCount.With(prometheus.Labels{"resourceType": sintC.Category}).Set(float64(sintC.Total))
+				mCount.With(prometheus.Labels{"category": sintC.Category}).Set(float64(sintC.Total))
 			}
 
 			fmt.Println(time.Now().Format(time.RFC3339))
@@ -186,7 +141,7 @@ func main() {
 			os.Getenv("OV_AUTHLOGINDOMAIN"),
 			os.Getenv("OV_ENDPOINT"), //use http(s):// prefix
 			false,
-			800, //why is this a fixed value? either detect or use env var
+			800,
 			"*")
 
 		for {
@@ -199,7 +154,7 @@ func main() {
 					fmt.Println("Enclosure Retrieval Failed: ", err)
 				} else {
 					fmt.Println("#----------------Enclosure Count with", s[0], "---------------#", encS.Total)
-					mStatus.With(prometheus.Labels{"resourceType": encS.Category, "status": s[0]}).Set(float64(encS.Total))
+					mStatus.With(prometheus.Labels{"category": encS.Category, "status": s[0]}).Set(float64(encS.Total))
 				}
 				//ServerHardware status
 				srvS, err := ovc.GetServerHardwareList(s, "")
@@ -207,7 +162,7 @@ func main() {
 					fmt.Println("Server Hardware Retrieval Failed: ", err)
 				} else {
 					fmt.Println("#----------------Server Hardware Count with", s[0], "---------------#", srvS.Total)
-					mStatus.With(prometheus.Labels{"resourceType": srvS.Category, "status": s[0]}).Set(float64(srvS.Total))
+					mStatus.With(prometheus.Labels{"category": srvS.Category, "status": s[0]}).Set(float64(srvS.Total))
 				}
 				//Interconnects status - not currently supported - needs a workaround
 				// intS, err := ovc.GetInterconnects("", "", "'OK'", "")
@@ -215,7 +170,7 @@ func main() {
 				// 	fmt.Println("Interconnect Retrieval Failed: ", err)
 				// } else {
 				// 	fmt.Println("#----------------Interconnect Count with", s[0], "---------------#", intS.Total)
-				// 	mSrvStatus.With(prometheus.Labels{"resourceType": intS.Category, "status": "OK"}).Set(float64(intS.Total))
+				// 	mSrvStatus.With(prometheus.Labels{"category": intS.Category, "status": "OK"}).Set(float64(intS.Total))
 				// }
 
 				//SAS Interconnects status
@@ -224,7 +179,7 @@ func main() {
 					fmt.Println("SAS Interconnect Retrieval Failed: ", err)
 				} else {
 					fmt.Println("#----------------SAS Interconnect Count with", s[0], "---------------#", sintS.Total)
-					mStatus.With(prometheus.Labels{"resourceType": sintS.Category, "status": s[0]}).Set(float64(sintS.Total))
+					mStatus.With(prometheus.Labels{"category": sintS.Category, "status": s[0]}).Set(float64(sintS.Total))
 				}
 			}
 
@@ -242,7 +197,7 @@ func main() {
 			os.Getenv("OV_AUTHLOGINDOMAIN"),
 			os.Getenv("OV_ENDPOINT"), //use http(s):// prefix
 			false,
-			800, //why is this a fixed value? either detect or use env var
+			800,
 			"*")
 
 		for {
@@ -289,7 +244,7 @@ func main() {
 			os.Getenv("OV_AUTHLOGINDOMAIN"),
 			os.Getenv("OV_ENDPOINT"), //use http(s):// prefix
 			false,
-			800, //why is this a fixed value? either detect or use env var
+			800,
 			"*")
 		for {
 			filters := []string{}
