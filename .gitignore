@@ -1,4 +1,4 @@
 # ignore local cheat-shet file
-.\.help
+.help
 # README.md is unfinished
 .\README.md
