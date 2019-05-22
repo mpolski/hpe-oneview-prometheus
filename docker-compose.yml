@@ -1,8 +1,8 @@
 version: "3"
 services:
   hpe-oneview-exporter:
-    image: hpe-oneview-prometheus:latest
-    container_name: hpe-oneview-prometheus
+    image: hpe-oneview-exporter:latest
+    container_name: hpe-oneview-exporter
     ports:
       - "8080:8080"
     environment:

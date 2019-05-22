@@ -13,4 +13,4 @@ FROM scratch
 COPY --from=builder /build/ /app/
 ENV PORT 8080
 EXPOSE 8080
-ENTRYPOINT ["/app/hpe-oneview-prometheus"]
+ENTRYPOINT ["/app/hpe-oneview-exporter"]

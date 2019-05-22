@@ -1,4 +1,4 @@
-# hpe-oneview-prometheus
+# hpe-oneview-exporter
 
 ## HPE OneView exporter for Prometheus
 
@@ -23,7 +23,7 @@ To deploy this application, execute the following commands:
 
 ```
 $ git clone https://github.com/mpolski/hpe-oneview-msmb-prometheus
-$ cd hpe-oneview-prometheus
+$ cd hpe-oneview-exporter
 ```
  2. Get all required dependencies: 
 
@@ -37,7 +37,7 @@ go get -v -d -tags 'static netgo' github.com/prometheus/client_golang/prometheus
  3. Build the binary:
 
 ```
-go build hpe-oneview-prometheus.go
+go build hpe-oneview-exporter.go
 ```
 
  4. Set all required env variables and start the binary:
@@ -52,13 +52,13 @@ OV_ENDPOINT="https://OneView_IP" OV_USERNAME="user" OV_PASSWORD="password" OV_AU
 
 ```
 $ git clone https://github.com/mpolski/hpe-oneview-msmb-prometheus
-$ cd hpe-oneview-prometheus
+$ cd hpe-oneview-exporter
 ```
 
  2. Deploy in [Docker](https://docker.com/) container using included `Dockerfile` to build image:
 
 ```
-docker build -t hpe-oneview-prometheus:<version> -t hpe-oneview-prometheus:latest .
+docker build -t hpe-oneview-exporter:<version> -t hpe-oneview-exporter:latest .
 ```
 
  3. Start container supplying the env varialbes (here inline):
@@ -70,7 +70,7 @@ docker run --detach --restart always --rm \
 --env OV_USERNAME="user" \
 --env OV_PASSWORD="password" \
 --env OV_AUTHLOGINDOMAIN="my_domain" \
---name hpe-oneview-prometheus hpe-oneview-prometheus:latest
+--name hpe-oneview-exporter hpe-oneview-exporter:latest
 ```
  4. Update your Prometheus configuration by adding the new target:
 
@@ -94,7 +94,7 @@ In case you do not have Prometheus nor Grafana working in your environment, foll
  1. Clone the repository as descibed above then build the container
   
 ```
-docker build -t hpe-oneview-prometheus:<version> -t hpe-oneview-prometheus:latest .
+docker build -t hpe-oneview-exporter:<version> -t hpe-oneview-exporter:latest .
 ```
  2. Start all three containers with docker-compose
   
