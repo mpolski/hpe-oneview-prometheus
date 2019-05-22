@@ -108,5 +108,5 @@ docker-compose -p exporter ps
  5. Browse to Prometheus UI ```http://<node-ip-addr>:9090```, then Status/Targets. Verify the target shows as up.
 
  6. Browse to Grafana UI ```http://<node-ip-addr>:3000```, first time logon credentials are username: admin, password: admin. 
-    The data source should be loaded, import [Grafana.com](https://grafana.com) Dashboard ID [10233](https://grafana.com/dashboards/10233) into your Grafana instance.
+    The data source should be loaded upon the start of the containers as well as the HPE OneView dashboard.
   
