@@ -61,15 +61,12 @@ $ cd hpe-oneview-exporter
 docker build -t hpe-oneview-exporter:<version> -t hpe-oneview-exporter:latest .
 ```
 
- 3. Start container supplying the env varialbes (here inline):
+ 3. Start container after providing the env varialbes in the .env_sample file):
     
 ```
 docker run --detach --restart always --rm \
 --publish 8080:8080 \
---env OV_ENDPOINT="OneView_IP" \
---env OV_USERNAME="user" \
---env OV_PASSWORD="password" \
---env OV_AUTHLOGINDOMAIN="my_domain" \
+--env-file .env_sample \
 --name hpe-oneview-exporter hpe-oneview-exporter:latest
 ```
  4. Update your Prometheus configuration by adding the new target:
@@ -96,18 +93,20 @@ In case you do not have Prometheus nor Grafana working in your environment, foll
 ```
 docker build -t hpe-oneview-exporter:<version> -t hpe-oneview-exporter:latest .
 ```
- 2. Start all three containers with docker-compose
+ 2. Add your env variables as per .env_sample file
+
+ 3. Start all three containers with docker-compose
   
 ```
 docker-compose -p exporter up -d
 ```
- 3. Verify all three containers are running
-  
+ 4. Verify all three containers are running
+
 ```
 docker-compose -p exporter ps
 ```
- 4. Browse to Prometheus UI ```http://<node-ip-addr>:9090```, then Status/Targets. Verify the target shows as up.
+ 5. Browse to Prometheus UI ```http://<node-ip-addr>:9090```, then Status/Targets. Verify the target shows as up.
 
- 5. Browse to Grafana UI ```http://<node-ip-addr>:3000```, first time logon credentials are username: admin, password: admin. 
+ 6. Browse to Grafana UI ```http://<node-ip-addr>:3000```, first time logon credentials are username: admin, password: admin. 
     The data source should be loaded, import [Grafana.com](https://grafana.com) Dashboard ID [10233](https://grafana.com/dashboards/10233) into your Grafana instance.
   

@@ -5,6 +5,8 @@ services:
     container_name: hpe-oneview-exporter
     ports:
       - "8080:8080"
+    env_file: 
+      - .env_sample
     environment:
       - OV_ENDPOINT
       - OV_USERNAME
