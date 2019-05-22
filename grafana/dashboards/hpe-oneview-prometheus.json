@@ -29,7 +29,7 @@
           "rgba(237, 129, 40, 0.89)",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -113,7 +113,7 @@
           "#56A64B",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -198,7 +198,7 @@
           "rgba(237, 129, 40, 0.89)",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -284,7 +284,7 @@
           "#E02F44",
           "#FF780A"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -369,7 +369,7 @@
           "#A352CC",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -454,7 +454,7 @@
           "#F2CC0C",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -539,7 +539,7 @@
           "rgba(237, 129, 40, 0.89)",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -623,7 +623,7 @@
           "rgba(237, 129, 40, 0.89)",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -707,7 +707,7 @@
           "#56A64B",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -793,7 +793,7 @@
           "#FF780A",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -879,7 +879,7 @@
           "#E02F44",
           "#FF780A"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -965,7 +965,7 @@
           "#A352CC",
           "#FF780A"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -1051,7 +1051,7 @@
           "#F2CC0C",
           "#FF780A"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -1137,7 +1137,7 @@
           "rgba(237, 129, 40, 0.89)",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -1221,7 +1221,7 @@
           "#56A64B",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -1307,7 +1307,7 @@
           "#FF780A",
           "#d44a3a"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -1393,7 +1393,7 @@
           "#E02F44",
           "#FF780A"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -1479,7 +1479,7 @@
           "#A352CC",
           "#FF780A"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -1565,7 +1565,7 @@
           "#F2CC0C",
           "#FF780A"
         ],
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "format": "none",
         "gauge": {
           "maxValue": 100,
@@ -1643,7 +1643,7 @@
       },
       {
         "cacheTimeout": null,
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "description": "",
         "gridPos": {
           "h": 7,
@@ -1695,7 +1695,7 @@
       },
       {
         "cacheTimeout": null,
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "description": "",
         "gridPos": {
           "h": 7,
@@ -1747,7 +1747,7 @@
       },
       {
         "cacheTimeout": null,
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "description": "",
         "gridPos": {
           "h": 7,
@@ -1802,7 +1802,7 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "fill": 1,
         "gridPos": {
           "h": 7,
@@ -1897,7 +1897,7 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "fill": 1,
         "gridPos": {
           "h": 7,
@@ -1991,7 +1991,7 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "fill": 1,
         "gridPos": {
           "h": 7,
@@ -2085,7 +2085,7 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "fill": 1,
         "gridPos": {
           "h": 7,
@@ -2171,7 +2171,7 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": "Prometheus-2",
+        "datasource": "Prometheus-OV",
         "fill": 1,
         "gridPos": {
           "h": 7,
