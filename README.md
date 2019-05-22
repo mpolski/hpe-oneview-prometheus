@@ -3,7 +3,7 @@
 ## HPE OneView exporter for Prometheus
 
 This module provides an HTTP endpoint for [Prometheus](https://prometheus.io/) time series database and alerting system. Prometheus to will scrap metrics for all server-hardware and enclosures managed by a given [HPE OneView](https://www.hpe.com/pl/en/integrated-systems/software.html) instance.
-A single HPE OneView instance manages multiple resources like server-hardware and interconnect modules hosted in enclsoures. HPE OneView REST API has been used to collect status of abovementioned elements as well as the following environment data as reported by the hardware: power consumption (average and peak), ambient temperature, CPU utilization as well as state of components. This data will be exposed at an HTTP endpoint in a Prometheus compatible format. The metrics can be easily visualized using [Grafana](https://grafana.com/) dashboards. A sample dashboard to visualize HPE OneView Prometheus metrics is available at https://grafana.com, dashboard ID 9984.
+A single HPE OneView instance manages multiple resources like server-hardware and interconnect modules hosted in enclsoures. HPE OneView REST API has been used to collect status of abovementioned elements as well as the following environment data as reported by the hardware: power consumption (average and peak), ambient temperature, CPU utilization as well as state of components. This data will be exposed at an HTTP endpoint in a Prometheus compatible format. The metrics can be easily visualized using [Grafana](https://grafana.com/) dashboards. A sample dashboard to visualize HPE OneView Prometheus metrics is available at https://grafana.com, dashboard ID 10233.
 
 ## Configuration variables
 
