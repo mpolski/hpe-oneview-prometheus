@@ -17,14 +17,15 @@ Configuration options set via environment variables:
 
 To deploy this application, execute the following commands:
 
-  1. Clone repo:
+### Option A - build and run binary
+
+ 1. Clone repo:
 
 ```
 $ git clone https://github.com/mpolski/hpe-oneview-msmb-prometheus
 $ cd hpe-oneview-prometheus
 ```
-
-  2. Get all required dependencies: 
+ 2. Get all required dependencies: 
 
 ```
 go get -v -d -tags 'static netgo' github.com/mpolski/oneview-golang/ov
@@ -32,32 +33,35 @@ go get -v -d -tags 'static netgo' github.com/prometheus/client_golang/prometheus
 go get -v -d -tags 'static netgo' github.com/prometheus/client_golang/prometheus
 
 ```
-
-### Option A - build and run binary
-
-  1. To build binary:
+ 
+ 3. Build the binary:
 
 ```
 go build hpe-oneview-prometheus.go
 ```
 
-  2. Then set all required env variables and start binary:
+ 4. Set all required env variables and start the binary:
 
 ```
 OV_ENDPOINT="https://OneView_IP" OV_USERNAME="user" OV_PASSWORD="password" OV_AUTHLOGINDOMAIN="my_domain" ./hpe-oneview-msmb-prometheus
 ```
 
-### Option B - deploy in a Docker container
+### Option B - deploy in a Docker container having Prometheus and Grafana already running in your environment
 
-In case you run Prometheus and Grafana in your environment, deploy this container first.
+ 1. Clone repo:
 
-  1. Deploy in [Docker](https://docker.com/) container using included `Dockerfile` to build image:
+```
+$ git clone https://github.com/mpolski/hpe-oneview-msmb-prometheus
+$ cd hpe-oneview-prometheus
+```
+
+ 2. Deploy in [Docker](https://docker.com/) container using included `Dockerfile` to build image:
 
 ```
 docker build -t hpe-oneview-prometheus:<version> -t hpe-oneview-prometheus:latest .
 ```
 
-  2. Then set all required env variables and start container, ex:
+ 3. Start container supplying the env varialbes (here inline):
     
 ```
 docker run --detach --restart always --rm \
@@ -68,7 +72,7 @@ docker run --detach --restart always --rm \
 --env OV_AUTHLOGINDOMAIN="my_domain" \
 --name hpe-oneview-prometheus hpe-oneview-prometheus:latest
 ```
-Now, update your Prometheus configuration by adding the new target:
+ 4. Update your Prometheus configuration by adding the new target:
 
 ```
 - job_name: hpe_oneview_exporter
@@ -81,27 +85,29 @@ Now, update your Prometheus configuration by adding the new target:
     - <container_IP_or_name>:8080
 ```
 
-Lastly, import [Grafana.com](https://grafana.com) Dashboard ID [10233](https://grafana.com/dashboards/10233) into your Grafana instance.
+ 5. Import [Grafana.com](https://grafana.com) Dashboard ID [10233](https://grafana.com/dashboards/10233) into your Grafana instance.
 
 
-### Option C - Prometheus and Grafana Deployment in Docker host (with docker-compose)
+### Option C - Deploy all 3 projects (HPE OneView exporter, Prometheus and Grafana on a Docker host (with docker-compose)
 In case you do not have Prometheus nor Grafana working in your environment, follow these steps to build the whole solution in a few minutes.
 
-  1. Clone the repository as descibed above then build the container
+ 1. Clone the repository as descibed above then build the container
   
 ```
 docker build -t hpe-oneview-prometheus:<version> -t hpe-oneview-prometheus:latest .
 ```
-  2. Start all three containers with docker-compose
+ 2. Start all three containers with docker-compose
   
 ```
 docker-compose -p exporter up -d
 ```
-  3. Verify all three containers are running
+ 3. Verify all three containers are running
   
 ```
 docker-compose -p exporter ps
 ```
-  4. Browse to Prometheus UI ```http://<node-ip-addr>:9090```, then Status/Targets. Verify the target shows as up.
-  5. Browse to Grafana UI ```http://<node-ip-addr>:3000```, (first time logon credentials are username: admin, password: admin). The data source should be loaded, import the Dashboard using id 10233.
+ 4. Browse to Prometheus UI ```http://<node-ip-addr>:9090```, then Status/Targets. Verify the target shows as up.
+
+ 5. Browse to Grafana UI ```http://<node-ip-addr>:3000```, first time logon credentials are username: admin, password: admin. 
+    The data source should be loaded, import [Grafana.com](https://grafana.com) Dashboard ID [10233](https://grafana.com/dashboards/10233) into your Grafana instance.
   
