@@ -22,8 +22,8 @@ To deploy this application, execute the following commands:
  1. Clone repo:
 
 ```
-$ git clone https://github.com/mpolski/hpe-oneview-msmb-prometheus
-$ cd hpe-oneview-exporter
+$ git clone https://github.com/mpolski/hpe-oneview-prometheus.git
+$ cd hpe-oneview-prometheus
 ```
  2. Get all required dependencies: 
 
@@ -51,17 +51,18 @@ OV_ENDPOINT="https://OneView_IP" OV_USERNAME="user" OV_PASSWORD="password" OV_AU
  1. Clone repo:
 
 ```
-$ git clone https://github.com/mpolski/hpe-oneview-msmb-prometheus
-$ cd hpe-oneview-exporter
+$ git clone https://github.com/mpolski/hpe-oneview-prometheus.git
+$ cd hpe-oneview-prometheus
 ```
 
- 2. Deploy in [Docker](https://docker.com/) container using included `Dockerfile` to build image:
+ 2. Build a [Docker](https://docker.com/) image using included `Dockerfile`:
 
 ```
-docker build -t hpe-oneview-exporter:<version> -t hpe-oneview-exporter:latest .
+docker build -t hpe-oneview-exporter:latest .
 ```
+ 3. Add your env variables as per .env_sample file
 
- 3. Start container after providing the env varialbes in the .env_sample file):
+ 4. Start container after providing the env varialbes in the .env_sample file):
     
 ```
 docker run --detach --restart always --rm \
@@ -69,7 +70,7 @@ docker run --detach --restart always --rm \
 --env-file .env_sample \
 --name hpe-oneview-exporter hpe-oneview-exporter:latest
 ```
- 4. Update your Prometheus configuration by adding the new target:
+ 5. Update your Prometheus configuration by adding the new target:
 
 ```
 - job_name: hpe_oneview_exporter
@@ -91,7 +92,7 @@ In case you do not have Prometheus nor Grafana working in your environment, foll
  1. Clone the repository as descibed above then build the container
   
 ```
-docker build -t hpe-oneview-exporter:<version> -t hpe-oneview-exporter:latest .
+docker build -t hpe-oneview-exporter:latest .
 ```
  2. Add your env variables as per .env_sample file
 

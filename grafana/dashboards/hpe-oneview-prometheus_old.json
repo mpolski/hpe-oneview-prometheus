@@ -12,7 +12,7 @@
         }
       ]
     },
-    "description": "HPE OneView dashboard",
+    "description": "HPE OneView dashboard old",
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
@@ -2290,7 +2290,7 @@
       ]
     },
     "timezone": "",
-    "title": "HPE OneView",
+    "title": "HPE OneView old",
     "uid": "-i0Y-pZWk",
     "version": 99
   }
